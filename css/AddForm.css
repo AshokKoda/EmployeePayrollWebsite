@@ -102,3 +102,23 @@ label {
     border-radius: 4px;
     resize: vertical;
 }
+
+.profile-radio-content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.profile{
+    width: 40px;
+    border-radius: 50%;
+    margin-left: 5px;
+    position: relative;
+    margin-right: 30px;
+}
+
+.profile-radio-content > label{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
