@@ -87,7 +87,7 @@
                 <label class="label text" for="salary">Salary</label>
                 <input class="input" type="range" name="salary" id="salary" min="300000" max="500000" step="100"
                     value="400000">
-                <output class="salary-output text" for="salary">400000</output>
+                <error-output class="salary-output" for="salary">400000</error-output>
             </div>
 
             <!--UC5 Specify startdate with day, month, year-->
@@ -158,15 +158,18 @@
                 <textarea id="notes" class="input" name="Notes" placeholder="" style="height: 100px;"></textarea>
             </div>
             <div class="buttonParent">
-                <a href="./EmployeePayroll.html" class="resetButton button cancelButton" style="background-color: red;">Cancel</a>
+                <a href="./EmployeePayroll.html" class="resetButton button cancelButton"
+                    style="background-color: red;">Cancel</a>
                 <div class="submit-reset">
                     <button type="submit" class="button submitButton" id="submitButton">Submit</button>
-                    <button type="reset" class="resetButton button" style="background-color: rgb(7, 86, 233);">Reset</button>
+                    <button type="reset" class="resetButton button"
+                        style="background-color: rgb(7, 86, 233);">Reset</button>
                 </div>
             </div>
         </form>
-    </div>
 
+        <script type="text/javascript" src="../js/Services.js"></script>
+    </div>
 </body>
 
 </html>
