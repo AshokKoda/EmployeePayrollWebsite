@@ -11,6 +11,7 @@ class EmployeePayroll {
         return this._name;
     }
     set name(name) {
+        console.log("inside setter");
         const nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
         if (nameRegex.test(name)) {
             this._name=name;
@@ -47,11 +48,11 @@ class EmployeePayroll {
         this._salary=salary;
     }
 
-    get note(){
-        return this._note;
+    get notes(){
+        return this._notes;
     }
-    set note(note){
-        this._note=note;
+    set notes(notes){
+        this._notes=notes;
     }
 
     get startDate(){
@@ -62,8 +63,8 @@ class EmployeePayroll {
         if(startDate > currentDate){
             throw "Start date is a future date";
         }
-        var diff = Math.abs(currentDate.getTime() - startDate.getTime());
-        if(diff / (1000*60*60*24) > 30){
+        var diff = Math.abs(currentDate.getTime()- startDate.getTime());
+        if(diff/(1000*60*60*24)>30){
             throw "Start date is beyond 30 days";
         }
         this._startDate=startDate;
