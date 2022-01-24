@@ -36,7 +36,8 @@ function salaryRange() {
 const save = () => {
     // alert("Saved...");
     let employeePayroll = createEmployeePayroll();
-    alert(JSON.stringify(employeePayroll));
+    //alert(JSON.stringify(employeePayroll));
+    createAndUpdateLocalStorage(employeePayroll);
 }
 
 const createEmployeePayroll = () => {
@@ -85,4 +86,16 @@ const getSelectedValue = (propertyValue)=> {
         }
     })
     return setItem;
+}
+
+const createAndUpdateLocalStorage = (empData) => {
+    let dataList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+    if(dataList != undefined){
+        dataList.push(empData);
+    }
+    else{
+        dataList = [empData];
+    }
+    localStorage.setItem('EmployeePayrollList', JSON.stringify(dataList));
+    alert("Data stored with name " + empData.name);
 }
