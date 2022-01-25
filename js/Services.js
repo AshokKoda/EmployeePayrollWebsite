@@ -99,3 +99,5 @@ const createAndUpdateLocalStorage = (empData) => {
     localStorage.setItem('EmployeePayrollList', JSON.stringify(dataList));
     alert("Data stored with name " + empData.name);
 }
+
+// const resetForm = () =>{}
