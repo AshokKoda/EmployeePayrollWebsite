@@ -14,7 +14,8 @@ const createInnerHTML = () => {
     // let employeePayrollList = createEmployeePayrollJson();
     const headerHtml = `
     <tr>
-        <th></th>
+        <th>ID'S</th>
+        <th>Profile</th>
         <th>Name</th>
         <th>Gender</th>
         <th>Department</th>
@@ -28,6 +29,7 @@ const createInnerHTML = () => {
     for (const employeePayrollData of employeePayrollList) {
         innerHtml = `${innerHtml}
         <tr>
+        <td>${employeePayrollData._id}</td>
         <td>
             <img class="profile" alt="profileImage" src="${employeePayrollData._profilePic}">
         </td>
