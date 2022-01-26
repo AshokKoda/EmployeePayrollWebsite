@@ -1,9 +1,17 @@
+let employeePayrollList;
 window.addEventListener('DOMContentLoaded', () => {
+    employeePayrollList = getEmployeeDataFromStorage();
+    document.querySelector('.emp-count').textContent = employeePayrollList.length;
     createInnerHTML();
 })
 
+const getEmployeeDataFromStorage = () => {
+    return localStorage.getItem('EmployeePayrollList')
+        ? JSON.parse(localStorage.getItem('EmployeePayrollList')) : [];
+}
+
 const createInnerHTML = () => {
-    let employeePayrollList = createEmployeePayrollJson();
+    // let employeePayrollList = createEmployeePayrollJson();
     const headerHtml = `
     <tr>
         <th></th>
@@ -17,7 +25,7 @@ const createInnerHTML = () => {
 
     let innerHtml = `${headerHtml}`;
     // const innerHtml = ` ${headerHtml}
-    for(const employeePayrollData of employeePayrollList){
+    for (const employeePayrollData of employeePayrollList) {
         innerHtml = `${innerHtml}
         <tr>
         <td>
