@@ -3,7 +3,8 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 const createInnerHTML = () => {
-    const innerHtml = `
+    let employeePayrollList = createEmployeePayrollJson();
+    const headerHtml = `
     <tr>
         <th></th>
         <th>Name</th>
@@ -12,28 +13,91 @@ const createInnerHTML = () => {
         <th>Salary</th>
         <th>Start Date</th>
         <th>Actions</th>
-    </tr>
+    </tr>`;
 
-    <tr>
+    let innerHtml = `${headerHtml}`;
+    // const innerHtml = ` ${headerHtml}
+    for(const employeePayrollData of employeePayrollList){
+        innerHtml = `${innerHtml}
+        <tr>
         <td>
-            <img class="profile" alt="profileImage" src="../assets/profile-images/Ellipse -1.png">
+            <img class="profile" alt="profileImage" src="${employeePayrollData._profilePic}">
         </td>
-        <td>Koda Ashok</td>
-        <td>Male</td>
+        <td>${employeePayrollData._name}</td>
+        <td>${employeePayrollData._gender}</td>
         <td>
-            <div class="dept-label">HR</div>
-            <div class="dept-label">Engineer</div>
+            ${getDeptHtml(employeePayrollData._department)}
         </td>
-        <td>400000</td>
-        <td> 1 Jan 2022</td>
+        <td>${employeePayrollData._salary}</td>
+        <td>${employeePayrollData._startDate}</td>
         <td>
-            <img alt="edit" src="../assets/icons/create-black-18dp.svg">
-            <img alt="delete" src="../assets/icons/delete-black-18dp.svg">
+            <img name="${employeePayrollData._id}" alt="edit" src="../assets/icons/create-black-18dp.svg">
+            <img name="${employeePayrollData._id}" alt="delete" src="../assets/icons/delete-black-18dp.svg">
         </td>
-    </tr>
-    `;
-
-
-
+    </tr>`;
+    }
     document.querySelector('#display').innerHTML = innerHtml;
+}
+
+const createEmployeePayrollJson = () => {
+    let employeePayrollList = [
+        {
+            "id": 1,
+            "_name": "Mark",
+            "_gender": "male",
+            "_department": [
+                "Finance"
+            ],
+            "_salary": "500000",
+            "_startDate": 1572287400000,
+            "_note": "All In One",
+            "_profilePic": "../assets/profile-images/Ellipse -3.png"
+        },
+        {
+            "id": 2,
+            "_name": "Bill",
+            "_gender": "male",
+            "_department": [
+                "Engineering"
+            ],
+            "_salary": "500000",
+            "_startDate": "29 Oct 2019",
+            "_note": "Terrific Engineer",
+            "_profilePic": "../assets/profile-images/Ellipse -1.png"
+        },
+        {
+            "_name": "Keerthi",
+            "_gender": "female",
+            "_department": [
+                "Sales"
+            ],
+            "_salary": "400000",
+            "_startDate": "29 Oct 2019",
+            "_note": "",
+            "_profilePic": "../assets/profile-images/Ellipse -1.png",
+            "id": 3
+        },
+        {
+            "_name": "Kavya",
+            "_profilePic": "../assets/profile-images/Ellipse -1.png",
+            "_gender": "female",
+            "_department": [
+                "Finance",
+                "Engineer"
+            ],
+            "_salary": "428100",
+            "_note": "                ",
+            "_startDate": 1621189800000,
+            "id": 5
+        }
+    ];
+    return employeePayrollList;
+}
+
+const getDeptHtml = (deptList) => {
+    let deptHtml = '';
+    for (const dept of deptList) {
+        deptHtml = `${deptHtml} <div class="dept-label">${dept}</div>`
+    }
+    return deptHtml;
 }
