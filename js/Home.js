@@ -2,6 +2,7 @@ let employeePayrollList;
 window.addEventListener('DOMContentLoaded', () => {
     employeePayrollList = getEmployeeDataFromStorage();
     document.querySelector('.emp-count').textContent = employeePayrollList.length;
+    localStorage.removeItem("edit-emp");
     createInnerHTML();
 })
 
@@ -122,6 +123,7 @@ const remove = (data) => {
     localStorage.setItem('EmployeePayrollList', JSON.stringify(employeePayrollList));
     document.querySelector('.emp-count').textContent = employeePayrollList.length;
     createInnerHTML();
+    localStorage.removeItem("edit-emp");
 }
 
 //Update Row
